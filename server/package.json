@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
+    "dev": "nodemon --watch src --ext ts --exec ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +15,7 @@
   "devDependencies": {
     "@types/express": "^5.0.2",
     "@types/node": "^22.15.21",
+    "nodemon": "^3.1.10",
     "prisma": "^6.8.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"

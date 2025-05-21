@@ -1,10 +1,11 @@
 import { PrismaClient } from "../generated/prisma";
 import express from "express";
 import TaskRouter from "./task/routes/task.route";
+import { errorHandler } from "./middleware/errorHandler";
 
 export const prisma = new PrismaClient();
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 async function main() {
   app.use(express.json());
@@ -14,6 +15,8 @@ async function main() {
   app.use((req, res) => {
     res.status(404).json({ message: `Route ${req.originalUrl} not found` });
   });
+
+  app.use(errorHandler);
 
   app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
