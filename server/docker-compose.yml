@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - 5558:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pswd123
+      POSTGRES_DB: mini-db
+      DATABASE_URL: postgresql://user:pswd123@localhost:5558/mini-db?schema=public
